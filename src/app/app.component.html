@@ -1,0 +1,58 @@
+<mat-progress-spinner class="spinner" *ngIf="!gameDataLoaded" mode="indeterminate"></mat-progress-spinner>
+
+<mat-sidenav-container class="app-container" *ngIf="gameDataLoaded | async">
+
+    <!-- Preguntas frecuentes de navegación en el lado izquierdo -->
+    <mat-sidenav role="region" class="sidenav" autoFocus="false" #faq>
+        <app-faq (closeButtonClicked)="faq.toggle()"></app-faq>
+    </mat-sidenav>
+
+    <!-- Opciones de navegación del lado derecho -->
+    <mat-sidenav role="region" class="sidenav" autoFocus="false" #options position="end">
+        <app-options (newGameClicked)="startNewGame()" (viewHistoryClicked)="viewHistory()"
+            (viewStatsClicked)="viewStats()" (closeButtonClicked)="options.toggle()" (concedeClicked)="concede()">
+        </app-options>
+    </mat-sidenav>
+
+    <!-- Cuerpo principal -->
+    <mat-sidenav-content class="game" role="main">
+
+        <!-- Encabezado -->
+        <div class="game-header" role="banner">
+            <!-- DEPURAR -->
+             <!-- Secreto: {{session.secret}} -->
+            <div class="info-icon-container">
+                <mat-icon class="icon-button" (click)="faq.toggle()" aria-label="FAQ">help_outline</mat-icon>
+                <mat-icon class="icon-button" (click)="openAbout()" aria-label="About">info_outline</mat-icon>
+            </div>
+
+            <h1 *ngIf="showGame && !gameOver" aria-label="Juego de Palabras" class="game-title">Juego de Palabras</h1>
+
+            <button mat-raised-button color="accent" *ngIf="gameOver && !(showHistory || showStats)"
+                (click)="openResultsDialog()">Ver resultados</button>
+
+            <button mat-raised-button color="accent" *ngIf="showHistory || showStats" (click)="viewGame()">Volver a
+              juego</button>
+
+            <div class="settings-icon-container">
+                <mat-icon class="icon-button" (click)="options.toggle()" aria-label="Options">settings</mat-icon>
+            </div>
+        </div>
+
+        <!-- Vista de historial -->
+        <app-history [ngClass]="{'hidden': !showHistory}" class="history-board"></app-history>
+
+        <!-- Vista de estadísticas -->
+        <app-stats [ngClass]="{'hidden': !showStats}" class="stats-board"></app-stats>
+
+        <!-- Vista del tablero de juego -->
+        <app-game-board [ngClass]="{'hidden': !showGame, 'shake': showError}" class="game-board"></app-game-board>
+
+        <!-- Teclado -->
+        <app-keyboard [ngClass]="{'hidden': !showGame}" class="game-keyboard"></app-keyboard>
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<router-outlet></router-outlet>

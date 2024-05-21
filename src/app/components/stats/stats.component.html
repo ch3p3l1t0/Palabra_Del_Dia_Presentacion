@@ -1,0 +1,51 @@
+<div class="card-container">
+  <mat-card appearance="outlined" class="card">
+      <div class="text-item">Juegos jugados (5/6/7)</div>
+      <div class="text-item">{{getGamesPlayed()}}</div>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="card">
+      <div class="text-item">victoria del juego %</div>
+      <div class="text-item">{{getAverageWinPercent()}}%</div>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="card">
+      <div class="text-item">Racha / max</div>
+      <div class="text-item">{{formatNumber(stats.winStreak)}} / {{formatNumber(stats.maxWinStreak)}}</div>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="card">
+      <div class="text-item">Promedio de conjeturas por juego</div>
+      <div class="text-item">{{getAverageGuesses()}}</div>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="card">
+      <div class="text-item">Tiempo promedio por juego</div>
+      <div class="text-item">{{getAverageGameTime()}}</div>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="card">
+      <div class="text-item">Victoria difícil %</div>
+      <div class="text-item">{{getAverageHardModeWinPercent()}}%</div>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="card">
+      <div class="text-item">Racha de victorias duras / máx.</div>
+      <div class="text-item">{{formatNumber(stats.winStreak_hard)}} / {{formatNumber(stats.maxWinStreak_hard)}}</div>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="card">
+      <div class="text-item">Victoria extrema %</div>
+      <div class="text-item">{{getAverageExtremeModeWinPercent()}}%</div>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="card">
+      <div class="text-item">Racha de victorias extrema / máx.</div>
+      <div class="text-item">{{formatNumber(stats.winStreak_extreme)}} / {{formatNumber(stats.maxWinStreak_extreme)}}</div>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="card">
+      <div class="text-item">Racha de victorias compartida / máx.</div>
+      <div class="text-item">{{formatNumber(stats.winStreak_shared)}} / {{formatNumber(stats.maxWinStreak_shared)}}</div>
+  </mat-card>
+</div>

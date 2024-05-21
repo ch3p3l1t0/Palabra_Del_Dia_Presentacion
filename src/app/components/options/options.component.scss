@@ -1,0 +1,79 @@
+@use '@angular/material' as mat;
+@import "../../../themeVariables";
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+}
+
+.options-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 96%;
+    height: 50px;
+}
+
+.options-row {
+    display: flex;
+    flex-direction: row;
+    padding: .75em 0 .5em .75em;
+}
+
+.divider {
+    width: 95%;
+}
+
+.section-header {
+    font-size: large;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.button-toggle-group {
+    margin-top: 0.25em;
+}
+
+.button-toggle {
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: large;
+}
+
+.mat-button-toggle-appearance-standard.mat-button-toggle-checked {
+    background-color: mat-color($accent);
+    color: mat-color($accent, default-contrast);
+}
+
+.options-button {
+    font-size: medium;
+    margin-bottom: .75em;
+    margin-top: .5em;
+}
+
+.options-view-button {
+    @extend .options-button;
+    justify-content: initial;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 450px) {
+    .options-row {
+        padding: .5em 0 .5em .5em;
+    }
+
+    .options-button {
+        font-size: small;
+    }
+
+    .section-header {
+        font-size: medium;
+    }
+}

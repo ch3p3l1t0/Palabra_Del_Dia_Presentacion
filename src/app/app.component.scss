@@ -1,0 +1,105 @@
+@keyframes shake {
+  0%, 100% {transform: translateX(0);}
+  10%, 30%, 50%, 70%, 90% {transform: translateX(-6px);}
+  20%, 40%, 60%, 80% {transform: translateX(6px);}
+}
+
+.shake {
+  animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.spinner {
+  height: 50%;
+  margin: 25% auto;
+}
+
+.app-container {
+  height: 100%;
+}
+
+.sidenav {
+  max-width: 40vh;
+  min-width: 33vh;
+}
+
+.reset-button {
+  font-size: large;
+  border-radius: 5px;
+  align-self: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.history-board {
+  align-self: center;
+  flex: 1;
+}
+
+.stats-board {
+  align-self: center;
+  flex: 1;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+ /* necesario para que el móvil proporcione espacio entre el tablero y el teclado */
+  gap: 1em;
+ /* necesario para centrar el contenido */
+  margin: 0 auto;
+}
+
+.game-board {
+  display: flex;
+  flex: 1;
+  align-self: center;
+  width: 330px;
+  max-height: 400px;
+  /* permitir que la animación de confirmación de letras se muestre fuera de los límites */
+  overflow: visible;
+}
+
+.game-header {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.info-icon-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70px;
+}
+
+.settings-icon-container {
+  display: flex;
+  flex-direction: row;
+  width: 70px;
+  justify-content: center;
+}
+
+.icon-button {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.game-title {
+  font-size: 2em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.game-keyboard {
+  display: block;
+  margin: 0 8px;
+}

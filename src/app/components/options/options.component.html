@@ -1,0 +1,94 @@
+<div class="options-container" aria-labelledby="pageTitle">
+  <div class="options-header">
+      <button mat-raised-button aria-label="Close window" color="accent" class="close-button" (click)="closePanel()">
+          Close
+      </button>
+  </div>
+
+  <div class="options-row">
+      <h1 class="section-header" id="pageTitle">Opcciones</h1>
+  </div>
+
+  <mat-divider class="divider"></mat-divider>
+
+  <div class="options-row">
+      <mat-slide-toggle matTooltipPosition="right" (change)="storeOptions()"
+          matTooltip="Cambia el tema del color a uno más oscuro" aria-label="Dark mode"
+          [(ngModel)]="options.darkMode">Modo oscuro</mat-slide-toggle>
+  </div>
+
+  <div class="options-row">
+      <mat-slide-toggle matTooltipPosition="right" (change)="storeOptions()" [disabled]="!disableConcede"
+          matTooltip="Las conjeturas deben incluir todas las pistas anteriores" aria-label="Hard mode"
+          [(ngModel)]="options.hardMode">Modo difícil</mat-slide-toggle>
+  </div>
+
+  <div class="options-row">
+      <mat-slide-toggle matTooltipPosition="right" (change)="storeOptions()"
+          matTooltip="El secreto puede ser cualquier palabra en el diccionario" aria-label="Extreme mode"
+          [(ngModel)]="options.extremeMode">Modo extremo</mat-slide-toggle>
+  </div>
+
+  <div class="options-row">
+      <h1 class="section-header">longitud de la palabra</h1>
+  </div>
+
+  <mat-divider class="divider"></mat-divider>
+
+  <div class="options-row">
+      <mat-button-toggle-group class="button-toggle-group" #group="matButtonToggleGroup"
+          [(ngModel)]="options.wordLength" [value]="options.wordLength" (change)="storeOptions()">
+          <mat-button-toggle class="button-toggle" value="5" aria-label="Text align left">
+              5
+          </mat-button-toggle>
+          <mat-button-toggle class="button-toggle" value="6" aria-label="Text align center">
+              6
+          </mat-button-toggle>
+          <mat-button-toggle class="button-toggle" value="7" aria-label="Text align right">
+              7
+          </mat-button-toggle>
+      </mat-button-toggle-group>
+  </div>
+
+  <div class="options-row">
+      <h1 class="section-header">Vista</h1>
+  </div>
+
+  <mat-divider class="divider"></mat-divider>
+
+  <div class="options-row">
+      <div class="button-container">
+          <button mat-raised-button matTooltipPosition="right" aria-label="View history"
+              matTooltip="Ver hasta 100 juegos recientes" class="options-view-button" color="accent" type="button"
+              (click)="viewHistory()">
+              Historia
+              <mat-icon class="icon" aria-hidden="true">Historia</mat-icon>
+          </button>
+
+          <button mat-raised-button matTooltipPosition="right" aria-label="View stats"
+              matTooltip="Ver estadísticas de juego" class="options-view-button" color="accent" type="button"
+              (click)="viewStats()">
+              Estadísticas
+              <mat-icon class="icon" aria-hidden="true">igualada</mat-icon>
+          </button>
+      </div>
+  </div>
+
+  <div class="options-row">
+      <h1 class="section-header">Juego</h1>
+  </div>
+
+  <mat-divider class="divider"></mat-divider>
+
+  <div class="options-row">
+      <div class="button-container">
+          <button mat-raised-button matTooltipPosition="right" aria-label="New game" matTooltip="Comienza un nuevo juego"
+              class="options-button" color="accent" type="button" onclick="this.blur()" (click)="startNewGame()">Comenzar
+              Nuevo juego</button>
+
+          <button mat-raised-button [disabled]="disableConcede" matTooltipPosition="right" aria-label="Concede"
+              matTooltip="Termina el juego actual" class="options-button" color="accent" type="button"
+              onclick="this.blur()" (click)="concede()">Concede</button>
+      </div>
+  </div>
+</div>

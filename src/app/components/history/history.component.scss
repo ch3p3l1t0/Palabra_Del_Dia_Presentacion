@@ -1,0 +1,87 @@
+.history-container {
+    height: 100%;
+    width: 100%;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginator {
+    font-size: medium;
+    margin-bottom: .75em;
+}
+
+.table-column {
+    font-size: small;
+    text-align: center;
+    width: 70px;
+    padding: 0 0 0 0 !important;
+}
+
+.mat-column-date {
+    @extend .table-column;
+}
+
+.mat-column-time-spent {
+    @extend .table-column;
+}
+
+.mat-column-guesses {
+    @extend .table-column;
+}
+
+.guess {
+    font-size: small;
+    font-style: italic;
+    margin: 2px 0 2px 0;
+}
+
+.mat-column-secret {
+    @extend .table-column;
+}
+
+.mat-column-win {
+    @extend .table-column;
+    max-width: 30px;
+}
+
+.mat-column-options {
+    @extend .table-column;
+}
+
+.mat-column-share {
+    @extend .table-column;
+    padding-right: 0px !important;
+}
+
+.copy-button {
+    font-size: small;
+    padding: 0 0 0 0;
+    min-width: 50px;
+    line-height: 30px;
+}
+
+@media only screen and (max-width: 500px) {
+    .paginator {
+        font-size: small;
+    }
+
+    .table-column {
+        font-size: x-small;
+        width: 50px;
+    }
+
+    .guess {
+        margin: 0 0 0 0;
+        font-size: x-small;
+    }
+
+    .copy-button {
+        min-width: 35px;
+        font-size: x-small;
+        line-height: 25px;
+    }
+}

@@ -1,0 +1,66 @@
+@use '@angular/material' as mat;
+@import "../../../themeVariables";
+
+.row {
+    display: flex;
+    width: 100%;
+    margin: 0 auto 8px;
+    touch-action: manipulation;
+}
+
+.enter-key {
+    min-width: 60px !important;
+}
+
+.backspace-key {
+    font-size: xx-large !important;
+    min-width: 80px !important;
+    text-align: center;
+}
+
+.key {
+    user-select: none;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0 6px 0 0;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    flex: 1;
+// anular el botón del material valor predeterminado
+    min-width: auto;
+    font-size: medium;
+
+    &--unused {
+        @extend .key;
+        background-color: var(--lf-unused-light) !important;
+
+        &.darkMode {
+            background-color: var(--lf-unused-dark) !important;
+        }
+    }
+
+    &--used {
+        @extend .key;
+        color: white !important;
+        background-color: var(--lf-used-light) !important;
+
+        &.darkMode {
+            background-color: var(--lf-used-dark) !important;
+        }
+    }
+
+    &--partial {
+        @extend .key;
+        color: white !important;
+        background-color: mat.get-color-from-palette($partial, 'default') !important;
+    }
+
+    &--perfect {
+        @extend .key;
+        color: white !important;
+        background-color: mat.get-color-from-palette($perfect, 'default') !important;
+    }
+}

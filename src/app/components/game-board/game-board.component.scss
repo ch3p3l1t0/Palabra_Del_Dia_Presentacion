@@ -1,0 +1,109 @@
+@use '@angular/material' as mat;
+@import "../../../themeVariables";
+
+@keyframes popIn {
+    from {
+        transform: scale(1.4);
+        opacity: .4;
+    }
+
+    to {
+        transform: scale(1.0);
+        opacity: 1;
+    }
+}
+
+@keyframes flash {
+    from {
+        filter: opacity(0%) brightness(20%);
+    }
+
+    to {
+        filter: opacity(100%) brightness(100%);
+    }
+}
+
+.column-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 5px;
+}
+
+.letter {
+    font-size: 2.5em;
+    user-select: none;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+
+    &-empty {
+        @extend .letter;
+        border: 2px solid var(--lf-unused-light);
+
+        &.darkMode {
+            border: 2px solid mat-color($primary, 'darker');
+        }
+    }
+
+    &-pending {
+        @extend .letter;
+        @extend .letter-pop;
+        border: 2px solid mat-color($primary, 'darker');
+
+        &.darkMode {
+            border: 2px solid mat-color($primary, 'default');
+        }
+    }
+
+    &-miss {
+        @extend .letter;
+        @extend .letter-flash;
+        background-color: var(--lf-used-light);
+        border: 2px solid var(--lf-used-light);
+
+        &.darkMode {
+            background-color: #4b4b4e;
+            border: 2px solid #4b4b4e;
+        }
+    }
+
+    &-perfect {
+        @extend .letter;
+        @extend .letter-flash;
+        background-color: mat-color($perfect, 'default');
+        border: 2px solid mat-color($perfect, 'default');
+    }
+
+    &-partial {
+        @extend .letter;
+        @extend .letter-flash;
+        background-color: mat-color($partial, 'default');
+        border: 2px solid mat-color($partial, 'default');
+    }
+}
+
+.letter-pop {
+    animation: popIn .1s;
+}
+
+.letter-flash {
+    color: white;
+    animation: flash .8s linear;
+
+    @for $i from 1 through 7 {
+        &:nth-child(#{$i}) {
+            animation-delay: (0.05s * $i);
+        }
+    }
+}

@@ -1,0 +1,67 @@
+@use '@angular/material' as mat;
+@import "../../../themeVariables";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1em;
+}
+
+.about-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+.about-row {
+    margin-left: .75em;
+    margin-top: .75em;
+}
+
+.about-section-header {
+    font-size: x-large;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.about-text-header {
+    font-size: large;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.about-text-item {
+    font-size: medium;
+}
+
+.about-link {
+    font-size: medium;
+    font-weight: 500;
+    color: mat.get-color-from-palette($partial, 'default');
+}
+
+@media only screen and (max-width: 450px) {
+    .about-row {
+        margin-left: .5em;
+        margin-top: .5em;
+    }
+
+    .about-section-header {
+        font-size: large;
+    }
+
+    .about-text-header {
+        font-size: medium;
+    }
+
+    .about-text-item {
+        font-size: small;
+    }
+
+    .about-link {
+        font-size: small;
+    }
+}

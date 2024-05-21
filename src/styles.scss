@@ -1,0 +1,100 @@
+@use '@angular/material' as mat;
+
+@import "@angular/material/theming";
+@import "./themeVariables";
+
+// TODO(v15): A partir de v15, mat.legacy-core ya no incluye estilos de tipografía predeterminados.
+// La siguiente línea agrega:
+// 1. Estilos de tipografía predeterminados para todos los componentes
+// 2. Estilos para clases de jerarquía tipográfica (por ejemplo, .mat-headline-1)
+// Si especifica estilos tipográficos para los componentes que utiliza en otros lugares, debe eliminar esta línea.
+// Si no necesita las tipografías de componentes predeterminadas pero aún desea los estilos de jerarquía,
+// puedes eliminar esta línea y en su lugar usar:
+// `@include mat.legacy-typography-hierarchy(mat.define-typography-config());`
+@include mat.all-component-typographies();
+@include mat.core();
+
+@include mat.all-component-themes($light-theme);
+
+:root {
+    // Constantes de color
+    --lf-unused-light: #d3d6da;
+    --lf-unused-dark: #818384;
+    --lf-used-light: #787c7e;
+    --lf-used-dark: #424242;
+}
+
+.darkMode {
+    @include mat.all-component-colors($dark-theme);
+}
+
+.darkMode .mat-drawer-backdrop.mat-drawer-shown {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.darkMode .mat-mdc-dialog-container {
+    --mdc-dialog-container-color: white;
+}
+
+/* Anulaciones de componentes de material -- */
+
+.mat-mdc-paginator-container {
+    min-height: 45px;
+}
+
+.mat-mdc-paginator-range-label {
+    width: 120px;
+    margin-right: 24px !important;
+}
+
+.error-snackbar {
+    background-color: mat-color($warn, 'A700');
+    color: white;
+}
+
+.mat-mdc-snack-bar-container {
+    &.error-snackbar {
+        --mdc-snackbar-container-color: mat-color($warn, 'A700');
+        --mat-mdc-snack-bar-button-color: white;
+        --mdc-snackbar-supporting-text-color: white;
+        --mdc-snackbar-supporting-text-size: large;
+        --mdc-snackbar-supporting-text-weight: 500;
+    }
+}
+
+.mdc-form-field {
+    --mat-slide-toggle-label-text-size: large;
+}
+
+/* -- Anulaciones de componentes de material */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.app-root {
+    display: block;
+    height: 100%;
+}
+
+@media only screen and (max-width: 450px) {
+    .mat-mdc-snack-bar-container {
+        &.error-snackbar {
+            --mdc-snackbar-supporting-text-size: medium;
+        }
+    }
+
+    .mat-mdc-paginator-range-label {
+        width: 100px;
+    }
+
+    .mdc-form-field {
+        --mat-slide-toggle-label-text-size: medium;
+    }
+}

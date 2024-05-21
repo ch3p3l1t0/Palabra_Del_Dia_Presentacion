@@ -1,0 +1,18 @@
+<div role="dialog">
+    <div class="header">
+        <button mat-raised-button aria-label="Close window" color="accent" class="close-button"
+            (click)="dialogRef.close()">
+            Close
+        </button>
+    </div>
+
+    <div class="content">
+        <label class="message-header">{{message}}</label>
+        <label class="message-header">Tiempo usado: {{timeSpent}}</label>
+        <button mat-raised-button [color]="shareButtonClicked ? 'primary' : 'accent'" class="dialog-button"
+            type="button" (click)="share()">{{shareButtonText}} <mat-icon aria-hidden="true">Compartir</mat-icon>
+        </button>
+        <button mat-raised-button color="accent" class="dialog-button" type="button" (click)="reset()">Jugar
+          ¡de nuevo!</button>
+    </div>
+</div>
